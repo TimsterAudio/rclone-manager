@@ -1,0 +1,37 @@
+[package]
+name = "tallwood"
+version = "0.1.0"
+edition = "2021"
+description = "A two-pane, keyboard-first tree file manager in the spirit of the DOS classics"
+license = "MIT"
+
+[workspace]
+
+[features]
+default = ["gui"]
+# Desktop window (Tauri). Without it the binary still offers `--serve` (browser UI).
+gui = ["dep:tauri", "dep:tauri-build"]
+# Embed the UI into the binary for release builds.
+custom-protocol = ["gui", "tauri/custom-protocol"]
+
+[build-dependencies]
+tauri-build = { version = "2", optional = true }
+
+[dependencies]
+tauri = { version = "2", optional = true }
+serde_json = "1"
+sysinfo = { version = "0.33", default-features = false, features = ["disk"] }
+trash = "5"
+open = "5"
+dirs = "5"
+tiny_http = "0.12"
+base64 = "0.22"
+include_dir = "0.7"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true

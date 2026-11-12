@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-theme="midnight">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tallwood</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="menubar">
+      <span class="brand">Tallwood</span>
+      <nav id="menus"></nav>
+      <span class="spacer"></span>
+      <button id="btn-palette" class="menu" tabindex="-1" title="All commands">Commands <kbd>F9</kbd></button>
+      <button id="btn-help" class="menu" tabindex="-1" title="Keyboard help">Keys <kbd>F1</kbd></button>
+    </header>
+    <main id="main" class="split">
+      <section class="pane" id="pane-0"></section>
+      <section class="pane" id="pane-1"></section>
+      <section id="preview"></section>
+      <aside id="stats"></aside>
+    </main>
+    <footer>
+      <div id="cmdbar"></div>
+      <div id="status"><span id="status-msg"></span></div>
+    </footer>
+    <div id="overlay"></div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
